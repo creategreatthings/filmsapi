@@ -7,6 +7,16 @@ const prisma = new PrismaClient();
 const app: Express = express();
 const port = process.env.PORT || 5000;
 
+/*
+if (process.env.NODE_ENV === 'development') {
+	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+}
+
+if (process.env_NODE_ENV === 'production') {
+	app.use(express.errorHandler());
+}
+*/
+
 app.use(morgan('combined'));
 
 app.get('/api/films', async (req: Request, res: Response) => {
